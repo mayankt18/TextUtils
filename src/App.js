@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development";
+import React, { useState } from "react";
 import "./App.css";
 import Alert from "./components/Alert";
 import About from "./components/About";
@@ -42,14 +42,20 @@ function App() {
           alert={showAlert}
         />
         <Alert alert={alert} />
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/">
-            <TextForm heading="Enter your text" mode={mode} alert={showAlert} />
-          </Route>
-        </Switch>
+        <div className="container my-3">
+          <Switch>
+            <Route exact path="/about">
+              <About />
+            </Route>
+            <Route exact path="/">
+              <TextForm
+                heading="Enter your text"
+                mode={mode}
+                alert={showAlert}
+              />
+            </Route>
+          </Switch>
+        </div>
       </Router>
     </>
   );
